@@ -1,0 +1,12 @@
+// базовые
+@use "./base/reset";
+@use "./base/variables.scss";
+
+// глобальные
+@use "./global/global";
+
+// компоненты
+@use "./base/components";
+
+//секции
+@use "./base/sections";

@@ -1,0 +1,910 @@
+@use "./variables" as *;
+// ==============================================
+// Loyout
+// ==============================================
+
+// header
+.header {
+  &__wrapper {
+    padding: 16px 0;
+  }
+}
+
+// footer
+.footer {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__copy {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 150%;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  &__politic {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 150%;
+    color: var(--text);
+  }
+}
+@media (max-width: $breakpoint-sm) {
+}
+
+//navigation-head-foot
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $text;
+  &__column {
+    display: flex;
+    align-items: center;
+  }
+
+  &__loc {
+    img {
+      margin-right: 25px;
+    }
+    p {
+      max-width: 190px;
+      padding-left: 25px;
+      border-left: 1px solid $text;
+      font-size: 15px;
+      line-height: 155%;
+    }
+  }
+
+  &__btns {
+    gap: 70px;
+    button {
+      padding: 24px 15px;
+      font-size: 16px;
+      line-height: 100%;
+    }
+  }
+
+  &__btns-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__btns-right {
+  }
+
+  &__social {
+    flex-direction: column;
+    gap: 16px;
+    width: 180px;
+    font-size: 14px;
+    line-height: 150%;
+    p {
+      position: relative;
+      padding-left: 11px;
+      &::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-100%, -50%);
+        background-color: #00ff00;
+        border-radius: $border-radius-circle;
+      }
+    }
+  }
+
+  &__social-icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__phone {
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    .nav__social-icons {
+      display: none;
+    }
+    p {
+      text-decoration: underline;
+    }
+  }
+  &__phone-number {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 150%;
+    background: linear-gradient(
+      230deg,
+      #4b4a53 0%,
+      #808086 49.48%,
+      #4b4a53 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+@media (max-width: 1601px) {
+  .nav {
+    &__btns {
+      gap: 30px;
+    }
+  }
+}
+@media (max-width: $breakpoint-xxl) {
+  .nav {
+    &__social {
+      display: none;
+    }
+    &__phone {
+      .nav__social-icons {
+        display: flex;
+      }
+    }
+    &__phone-text {
+      margin-bottom: 13px;
+    }
+  }
+}
+@media (max-width: $breakpoint-xl) {
+  .nav {
+    &__btns-left {
+      display: none;
+    }
+  }
+}
+@media (max-width: $breakpoint-lg) {
+  .nav {
+    &__loc {
+      img {
+        margin: 0;
+      }
+      p {
+        display: none;
+      }
+    }
+    &__phone {
+      gap: 0;
+      p {
+        font-size: 12px;
+      }
+      .nav__social-icons {
+        img {
+          width: 33px;
+          height: 27px;
+        }
+      }
+    }
+    &__phone-number {
+      font-size: 16px;
+    }
+  }
+}
+@media (max-width: $breakpoint-sm) {
+  .nav {
+    &__loc {
+      p {
+        display: none;
+      }
+    }
+    &__btns {
+      display: none;
+    }
+  }
+}
+
+.nav-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: $text;
+  width: 100%;
+  margin-bottom: 26px;
+  &__column {
+    display: flex;
+    align-items: center;
+    &:nth-child(1) {
+      order: 1;
+    }
+    &:nth-child(2) {
+      order: 2;
+    }
+    &:nth-child(3) {
+      order: 3;
+    }
+    &:nth-child(4) {
+      order: 4;
+    }
+  }
+
+  &__loc {
+    img {
+      margin-right: 25px;
+    }
+    p {
+      max-width: 190px;
+      padding-left: 25px;
+      border-left: 1px solid $text;
+      font-size: 15px;
+      line-height: 155%;
+    }
+  }
+
+  &__btns {
+    gap: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    button {
+      padding: 24px 15px;
+      font-size: 16px;
+      line-height: 100%;
+    }
+  }
+
+  &__btns-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__btns-right {
+  }
+
+  &__social {
+    flex-direction: column;
+    gap: 16px;
+    width: 180px;
+    font-size: 14px;
+    line-height: 150%;
+    p {
+      position: relative;
+      padding-left: 11px;
+      &::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-100%, -50%);
+        background-color: #00ff00;
+        border-radius: $border-radius-circle;
+      }
+    }
+  }
+
+  &__social-icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__phone {
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    p {
+      text-decoration: underline;
+    }
+  }
+  &__phone-number {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 150%;
+    background: linear-gradient(
+      230deg,
+      #4b4a53 0%,
+      #808086 49.48%,
+      #4b4a53 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+@media (max-width: 1601px) {
+  .nav-footer {
+    &__btns {
+      gap: 30px;
+    }
+  }
+}
+@media (max-width: $breakpoint-xxl) {
+  .nav-footer {
+    justify-content: center;
+    gap: 40px;
+    &__social {
+      // display: none;
+    }
+    &__phone {
+      .nav-footer__social-icons {
+        display: flex;
+      }
+    }
+    &__phone-text {
+      margin-bottom: 13px;
+    }
+  }
+}
+@media (max-width: $breakpoint-xl) {
+  .nav-footer {
+    &__btns-left {
+      // display: none;
+    }
+  }
+}
+@media (max-width: $breakpoint-lg) {
+  .nav-footer {
+    &__loc {
+      img {
+        margin: 0;
+      }
+      p {
+        display: none;
+      }
+    }
+    &__phone {
+      gap: 0;
+    }
+  }
+}
+@media (max-width: $breakpoint-sm) {
+  .nav-footer {
+    flex-direction: column;
+    gap: 35px;
+    &__column {
+      &:nth-child(1) {
+        order: 1;
+      }
+      &:nth-child(2) {
+        order: 4;
+      }
+      &:nth-child(3) {
+        order: 3;
+      }
+      &:nth-child(4) {
+        order: 2;
+      }
+    }
+  }
+}
+// ==============================================
+// cards
+// ==============================================
+// ==============================================
+// card about
+// ==============================================
+.card-about {
+  padding: 50px 50px 45px 50px;
+  border-radius: 14px;
+  box-shadow: 0 4px 25px 0 rgba(159, 189, 207, 0.15);
+  &__img {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(
+      106.03% 136.67% at 50% 0%,
+      #ffc400 0%,
+      #f90 100%
+    );
+    border-radius: 14px;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 180%;
+    background: linear-gradient(
+      230deg,
+      #4b4a53 0%,
+      #808086 49.48%,
+      #4b4a53 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__subtitle {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--text-2);
+    opacity: 0.8;
+  }
+  @media (max-width: $breakpoint-lg) {
+    padding: 30px;
+    &__title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    &__subtitle {
+      font-size: 15px;
+    }
+  }
+}
+// ==============================================
+// card catalog
+// ==============================================
+.card-catalog {
+  border-radius: 14px;
+  padding-top: 30px;
+  box-shadow: 0 10px 39px -20px rgba(36, 67, 96, 0.2);
+  color: $text;
+  overflow: hidden;
+  min-width: 235px;
+  &__img {
+    display: flex;
+    justify-content: center;
+    img {
+      width: auto;
+      height: 260px;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    background: #fafafa;
+    padding: 40px 30px 35px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
+
+  &__proportions {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 20px;
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__price {
+    margin-bottom: 30px;
+    color: #758499;
+    span {
+      font-size: 20px;
+      color: $text;
+    }
+  }
+
+  &__options {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    margin-bottom: 30px;
+    max-width: 152px;
+  }
+  &__option {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-bottom: 15px;
+    select {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: $white;
+      padding: 7px;
+    }
+  }
+  &__option-1 {
+  }
+
+  &__option-2 {
+  }
+  &__option-3 {
+  }
+  &__btn {
+    align-self: self-start;
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+  }
+  @media (max-width: $breakpoint-md) {
+    border-radius: 4px;
+    &__img {
+      height: 146px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__info {
+      padding: 20px 20px 50px 20px;
+    }
+    &__btn {
+      font-size: 12px;
+    }
+  }
+}
+// ==============================================
+// card slider
+// ==============================================
+.card-slider {
+  padding: 40px;
+  border-radius: 14px;
+  background-color: $white;
+  box-shadow: 0 4px 25px 0 rgba(159, 189, 207, 0.15);
+  color: $text;
+  font-size: 18px;
+  line-height: 180%;
+  &__head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  &__img {
+    margin-right: 25px;
+  }
+
+  &__info {
+    color: $text;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 180%;
+    color: #2e4156;
+  }
+
+  &__date {
+    font-weight: 400;
+    line-height: 140%;
+  }
+
+  &__yandex-map {
+    margin-left: auto;
+    width: auto;
+    height: 23px;
+    object-fit: cover;
+  }
+
+  &__test {
+  }
+}
+// ==============================================
+// sidebar
+// ==============================================
+.sidebar {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: $white;
+  &__item {
+  }
+}
+.sidebar-item {
+  width: 110px;
+  height: 105px;
+  position: relative;
+  padding: 13px;
+  border-radius: 8px 0 0 8px;
+  background-color: $color-primary;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 120%;
+    height: 100%;
+  }
+  &__img {
+    width: 38px;
+    height: auto;
+    object-fit: cover;
+  }
+  &__text {
+  }
+}
+@media (max-width: 660px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+// ==============================================
+// Bottoms
+// ==============================================
+// кнопки (стили можно спокойно вешать на ссылки)
+.button {
+  padding: 15px 24px;
+  border-radius: $btn-border-radius-L;
+  background-color: $color-primary;
+  transition: all 0.3s;
+  user-select: none;
+  display: inline-block;
+  width: auto;
+  color: $text;
+  &:hover {
+    opacity: 0.7;
+  }
+  &--primary {
+    background-color: $btn-color-primary;
+    &:hover {
+    }
+  }
+  &--secondary {
+    background: $btn-color-secondary;
+    &:hover {
+    }
+  }
+  &--outline {
+    border: 1px solid $btn-color-primary;
+    background-color: inherit;
+    &:hover {
+    }
+  }
+  &--ghost {
+    color: $btn-color-primary;
+    background-color: inherit;
+    &:hover {
+    }
+  }
+}
+
+// ==============================================
+// Sliders
+// ==============================================
+/* Основной контейнер Swiper (обязательно задать ширину и высоту) */
+.swiper {
+  width: 100%; /* Занимает всю ширину родителя */
+  height: 200px; /* Фиксированная высота (можно auto, если контент определяет высоту) */
+  margin: 0 auto; /* Центрирование, если нужно */
+  position: relative; /* Нужно для позиционирования стрелок и пагинации */
+  //   overflow: hidden; /* Скрывает всё, что выходит за границы */
+}
+
+/* Обертка для слайдов (не трогаем ширину/высоту, Swiper сам управляет) */
+.swiper-wrapper {
+  display: flex; /* Слайды в ряд */
+  width: 100%;
+  height: 100%;
+}
+
+/* Стили для каждого слайда */
+.swiper-slide {
+  width: 300px; /* Фиксированная ширина слайда */
+  height: 100%; /* Занимает всю высоту контейнера .swiper */
+  flex-shrink: 0; /* Не сжимается при недостатке места */
+  /* Дополнительные стили для контента внутри слайда */
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   background: #f5f5f5;
+  //   border-radius: 8px;
+  background-color: aqua;
+}
+
+/* Контейнер для стрелок (генерируется Swiper) */
+.swiper-button-prev,
+.swiper-button-next {
+}
+
+/* Стрелка "назад" */
+.swiper-button-prev {
+}
+
+/* Стрелка "вперед" */
+.swiper-button-next {
+}
+
+/* Иконки внутри стрелок (опционально) */
+.swiper-button-prev:after,
+.swiper-button-next:after {
+}
+
+/* Контейнер пагинации (точки) */
+.swiper-pagination {
+}
+/* Отдельная точка */
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #ddd;
+  border-radius: 50%;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Активная точка */
+.swiper-pagination-bullet-active {
+  background: #333;
+}
+
+.my-slider {
+  &__wrapper {
+    position: relative;
+  }
+  &__pagination {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Расстояние между точками */
+  }
+  &__button-next,
+  &__button-prev {
+    width: 40px; /* Ширина стрелки */
+    height: 40px; /* Высота стрелки */
+    background-color: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Выносим из потока */
+    top: 50%; /* Выравниваем по вертикали */
+    transform: translateY(-100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10; /* Чтобы стрелки были над слайдами */
+  }
+  &__button-next {
+    right: -80px;
+  }
+  &__button-prev {
+    left: -80px;
+  }
+}
+
+.my-slider-slide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: rgba(0, 0, 0, 0.566);
+  text-align: center;
+  &__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  &__text {
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+}
+// ==============================================
+// Forms
+// ==============================================
+// Основные стили формы
+.my-form {
+  border: 1px solid #000;
+  max-width: 765px;
+  border-radius: 30px;
+  padding: 20px;
+}
+.my-form .wpcf7-form-control {
+  border-radius: 15px;
+  border: 1px solid #000;
+  background: linear-gradient(360deg, #f3f5f9 0%, #f8fafe 100%);
+}
+.my-form .wpcf7-text {
+  //   background-color: red;
+  padding: 20px 0 20px 35px;
+  border-radius: 60px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: rgba(105, 104, 111, 0.5);
+  width: 100%;
+}
+.my-form .wpcf7-textarea {
+  //   background-color: #00ff00;
+  resize: none;
+}
+.my-form .wpcf7-checkbox {
+  //   background-color: yellow;
+}
+.my-form .wpcf7-radio {
+  background-color: rgb(0, 47, 255);
+}
+.my-form .wpcf7-submit {
+  padding: 20px;
+  width: 100%;
+  box-shadow: inset 0 0 12px 0 rgba(255, 255, 255, 0.45);
+  background: radial-gradient(106.03% 136.67% at 50% 0%, #ffc400 0%, #f90 100%);
+}
+// Стилизация SlimSelect
+.ss-main {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  min-height: 46px;
+  transition: all 0.2s ease;
+
+  &:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    background: #fff;
+  }
+
+  .ss-single-selected {
+    padding: 0.75rem 1rem;
+    color: #1e293b;
+    font-size: 0.9375rem;
+  }
+
+  .ss-arrow {
+    path {
+      stroke: #64748b;
+    }
+  }
+}
+
+.ss-content {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+  background: #fff;
+
+  .ss-list {
+    .ss-option {
+      padding: 0.75rem 1rem;
+      font-size: 0.9375rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      &:hover {
+        background: #f1f5f9;
+        color: #6366f1;
+      }
+
+      &.ss-selected {
+        background: #eef2ff;
+        color: #6366f1;
+        font-weight: 500;
+      }
+    }
+  }
+}
