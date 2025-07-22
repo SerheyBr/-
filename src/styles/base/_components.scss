@@ -589,19 +589,30 @@
 
   &__test {
   }
+  @media (max-width: $breakpoint-sm) {
+    &__yandex-map {
+      display: none;
+    }
+  }
 }
 // ==============================================
 // sidebar
 // ==============================================
 .sidebar {
-  position: absolute;
+  position: fixed;
   top: 50%;
   right: 0;
-  transform: translate(0, -50%);
+  transform: translate(80%, -50%);
   display: flex;
   flex-direction: column;
   gap: 10px;
   color: $white;
+  overflow: hidden;
+  z-index: 20;
+  transition: all 0.3s;
+  &:hover {
+    transform: translate(0, -50%);
+  }
   &__item {
   }
 }
@@ -611,7 +622,14 @@
   position: relative;
   padding: 13px;
   border-radius: 8px 0 0 8px;
-  background-color: $color-primary;
+  background-color: #f90;
+  cursor: pointer;
+
+  &:hover {
+    .sidebar-item__img {
+      transform: scale(1.2);
+    }
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -627,6 +645,7 @@
     width: 38px;
     height: auto;
     object-fit: cover;
+    transition: all 0.3s;
   }
   &__text {
   }
@@ -634,6 +653,29 @@
 @media (max-width: 660px) {
   .sidebar {
     display: none;
+  }
+}
+
+// ==============================================
+// breadcrumbs
+// ==============================================
+.breadcrumbs {
+  margin-bottom: 70px;
+  &__item {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: $text-2;
+    span {
+      background: radial-gradient(
+        106.03% 136.67% at 50% 0%,
+        rgb(255, 196, 0) 0%,
+        rgb(255, 153, 0) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 }
 
@@ -683,7 +725,7 @@
 /* Основной контейнер Swiper (обязательно задать ширину и высоту) */
 .swiper {
   width: 100%; /* Занимает всю ширину родителя */
-  height: 200px; /* Фиксированная высота (можно auto, если контент определяет высоту) */
+  height: auto; /* Фиксированная высота (можно auto, если контент определяет высоту) */
   margin: 0 auto; /* Центрирование, если нужно */
   position: relative; /* Нужно для позиционирования стрелок и пагинации */
   //   overflow: hidden; /* Скрывает всё, что выходит за границы */
@@ -701,13 +743,6 @@
   width: 300px; /* Фиксированная ширина слайда */
   height: 100%; /* Занимает всю высоту контейнера .swiper */
   flex-shrink: 0; /* Не сжимается при недостатке места */
-  /* Дополнительные стили для контента внутри слайда */
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   background: #f5f5f5;
-  //   border-radius: 8px;
-  background-color: aqua;
 }
 
 /* Контейнер для стрелок (генерируется Swiper) */
@@ -756,22 +791,21 @@
     display: flex;
     justify-content: center;
     gap: 8px; /* Расстояние между точками */
+    display: none;
   }
   &__button-next,
   &__button-prev {
-    width: 40px; /* Ширина стрелки */
-    height: 40px; /* Высота стрелки */
-    background-color: #00ff00;
+    width: 70px; /* Ширина стрелки */
+    height: 70px; /* Высота стрелки */
+    background-color: #ffc400;
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: absolute; /* Выносим из потока */
-    top: 50%; /* Выравниваем по вертикали */
-    transform: translateY(-100%);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     z-index: 10; /* Чтобы стрелки были над слайдами */
+    transition: all 0.3s;
   }
   &__button-next {
     right: -80px;
@@ -779,6 +813,15 @@
   &__button-prev {
     left: -80px;
   }
+}
+
+.my-slider__button-next.swiper-button-disabled {
+  background-color: #dce0e4;
+  transform: scale(0.7);
+}
+.my-slider__button-prev.swiper-button-disabled {
+  background-color: #dce0e4;
+  transform: scale(0.7);
 }
 
 .my-slider-slide {
@@ -808,6 +851,21 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
+  }
+}
+.my-slider {
+  &__btns {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: end;
+    margin-bottom: 58px;
+  }
+}
+@media (max-width: $breakpoint-lg) {
+  .my-slider__btns {
+    display: none;
   }
 }
 // ==============================================

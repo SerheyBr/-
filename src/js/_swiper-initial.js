@@ -1,8 +1,8 @@
 const swiper = new Swiper(".my-slider", {
   direction: "horizontal",
-  loop: true,
+  loop: false,
   slidesPerView: 3,
-  spaceBetween: 20,
+  spaceBetween: 40,
   pagination: {
     el: ".my-slider__pagination",
     clickable: true,
@@ -10,6 +10,23 @@ const swiper = new Swiper(".my-slider", {
   navigation: {
     nextEl: ".my-slider__button-next",
     prevEl: ".my-slider__button-prev",
+  },
+  breakpoints: {
+    // Настройки для экранов >= 320px
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    // Настройки для экранов >= 768px
+    800: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    // Настройки для экранов >= 1024px
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
   },
 });
 
